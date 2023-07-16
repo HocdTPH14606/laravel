@@ -80,21 +80,21 @@
                                 </a>
                             </li> 
                             <li class="nav-item">
-                                <a href="/admin/rooms" class="nav-link">
+                                <a href="/admin/attribute" class="nav-link">
                                   <i class="nav-icon fa fa-archive"></i>
-                                  <p>Danh mục<i class="right fa fa-angle-left"></i></p>
+                                  <p>Thuộc tính<i class="right fa fa-angle-left"></i></p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="/admin/rooms/create" class="nav-link">
+                                        <a href="/admin/attribute/create" class="nav-link">
                                             <i class="fa fa-dot-circle nav-icon"></i>
-                                            <p>Thêm Danh mục</p>
+                                            <p>Thêm thuộc tính</p>
                                         </a>
                                     </li>
                                   <li class="nav-item">
-                                    <a href="/admin/rooms" class="nav-link">
+                                    <a href="/admin/attribute" class="nav-link">
                                         <i class="fa fa-dot-circle nav-icon"></i>
-                                      <p>Danh sách Danh mục</p>
+                                      <p>Danh sách thuộc tính</p>
                                     </a>
                                   </li>
                                 </ul>
