@@ -5,8 +5,7 @@ use App\http\Controllers\ProducsController;
 use App\http\Controllers\ClientController;
 use App\http\Controllers\AdminController;
 use App\http\Controllers\AttributeController;
-use App\Models\Role;
-use Illuminate\Routing\Router;
+use App\Models\Role; 
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +32,13 @@ Route::get('/products', function () {
 Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/', [AdminController::class, 'index'])->name('index');
 
-    Route::get('/attribute', [AttributeController::class, 'index'])->name('AttributeIndex'); 
-    Route::get('/attribute/create', [AttributeController::class, 'create'])->name('AttributeCreate');
-    Route::Post('/attribute/store', [AttributeController::class, 'store'])->name('AttributeStore'); 
-
-});
+    Route::prefix('/attribute')->name('Attribute.')->group(function(){ 
+        Route::get('/', [AttributeController::class, 'list'])->name('List'); 
+        Route::get('create', [AttributeController::class, 'create'])->name('Create');
+        Route::Post('store', [AttributeController::class, 'store'])->name('Store'); 
+        Route::delete('delete', [AttributeController::class, 'delete'])->name('Delete'); 
+        Route::get('edit/{attr?}', [AttributeController::class, 'edit'])->name('Edit'); 
+        Route::post('update', [AttributeController::class, 'update'])->name('Update'); 
+        Route::delete('delete/{attr?}', [AttributeController::class, 'delete'])->name('Delete'); 
+    });
+}); 
