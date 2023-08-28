@@ -9,7 +9,10 @@ class Attribute extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'value'
+        'name' 
     ];
+    // 1 attribute thuộc nhiều attributeValue
+    public function attributeValue(){
+        return $this->hasMany(attributeValue::class, 'attribute_id', 'id');
+    } 
 }
