@@ -3,14 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
-use App\Models\Attribute;
 
-class AttributeRequest extends FormRequest
+class AttributeValueRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -34,15 +29,15 @@ class AttributeRequest extends FormRequest
             case 'POST':
                 switch ($ActionCurrent) {
                         // nếu là method thêm mới bản ghi
-                    case 'store1':
+                    case 'store2':
                         $rules = [ 
-                            'name' => 'required|unique:attributes|string|max:255|min:1'
+                            'value' => 'required|unique:attribute_values|string|max:255|min:1'
                         ];
                         break;
                         // nếu là method chỉnh sửa bản ghi
-                    case 'update1':
+                    case 'update2':
                         $rules = [ 
-                            'name' => 'unique:attributes,name,' . $this->id, '|string|max:255|min:1'
+                            'value' => 'unique:attribute_values,value,' . $this->id, '|string|max:255|min:1'
                         ];
                         break;
 
@@ -59,11 +54,11 @@ class AttributeRequest extends FormRequest
     public function messages()
     {
         return [ 
-            'name.required' => 'Không được để trống',
-            'name.string' => 'Giá trị chưa đúng định dạng',
-            'name.unique' => 'Giá trị đã tồn tại',
-            'name.max' => 'Giá trị tối đa 255 ký tự',
-            'name.min' => 'Giá trị tối thiểu 1 ký tự'
+            'value.required' => 'Không được để trống',
+            'value.string' => 'Giá trị chưa đúng định dạng',
+            'value.unique' => 'Giá trị đã tồn tại',
+            'value.max' => 'Giá trị tối đa 255 ký tự',
+            'value.min' => 'Giá trị tối thiểu 1 ký tự'
         ];
     } 
 }

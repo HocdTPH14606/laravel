@@ -7,18 +7,24 @@
     <title>AdminLTE 3 | Fixed Navbar Layout</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     {{-- <link rel="stylesheet" href="{{asset('/dist/css/all.min.css')}}"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="{{asset('/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
+    
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  /> --}}
     {{-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
@@ -31,7 +37,8 @@
             <nav class="main-header navbar navbar-expand navbar-white navbar-light">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fa fa-bars"></i></a>
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                                class="fa fa-bars"></i></a>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
                         <a href="/" class="nav-link">Trang chủ</a>
@@ -53,36 +60,38 @@
                     <div class="user-panel mt-3  mb-3 d-flex">
                         <div class="info">
                             <a href="#" class="d-block">
-                            <!-- Auth::check() trả về true/false đã đăng nhập hay chưa -->
-                            @if (Auth::check())
-                                <!-- Auth::user() trả về thể hiện của model User chứa thông tin đã đăng nhập -->
-                                {{Auth::user()->email}}
-                            @endif
+                                <!-- Auth::check() trả về true/false đã đăng nhập hay chưa -->
+                                @if (Auth::check())
+                                    <!-- Auth::user() trả về thể hiện của model User chứa thông tin đã đăng nhập -->
+                                    {{ Auth::user()->email }}
+                                @endif
                             </a>
                         </div>
                     </div>
                     <div class="form-inline">
-                        <div class="input-group" >
-                          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                          <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                          </div>
+                        <div class="input-group">
+                            <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-sidebar">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
                         </div>
-                      </div>
+                    </div>
                     <nav class="mt-2">
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                            data-accordion="false">
                             <li class="nav-item">
                                 <a href="/admin/users" class="nav-link">
                                     <i class="nav-icon fas fa-user-friends"></i>
                                     <p>Users</i></p>
                                 </a>
-                            </li> 
+                            </li>
                             <li class="nav-item">
                                 <a href="/admin/attribute" class="nav-link">
-                                  <i class="nav-icon fa fa-archive"></i>
-                                  <p>Thuộc tính<i class="right fa fa-angle-left"></i></p>
+                                    <i class="nav-icon fa fa-archive"></i>
+                                    <p>Thuộc tính<i class="right fa fa-angle-left"></i></p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
@@ -91,32 +100,32 @@
                                             <p>Thêm thuộc tính</p>
                                         </a>
                                     </li>
-                                  <li class="nav-item">
-                                    <a href="/admin/attribute" class="nav-link">
-                                        <i class="fa fa-dot-circle nav-icon"></i>
-                                      <p>Danh sách thuộc tính</p>
-                                    </a>
-                                  </li>
+                                    <li class="nav-item">
+                                        <a href="/admin/attribute" class="nav-link">
+                                            <i class="fa fa-dot-circle nav-icon"></i>
+                                            <p>Danh sách thuộc tính</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/products" class="nav-link">
-                                  <i class="nav-icon fa fa-calendar"></i>
-                                  <p>Sản phẩm<i class="right fa fa-angle-left"></i></p>
+                                <a href="/admin/product" class="nav-link">
+                                    <i class="nav-icon fa fa-calendar"></i>
+                                    <p>Sản phẩm<i class="right fa fa-angle-left"></i></p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="/admin/products/create" class="nav-link">
+                                        <a href="/admin/product/create" class="nav-link">
                                             <i class="fa fa-dot-circle nav-icon"></i>
                                             <p>Thêm sản phẩm</p>
                                         </a>
                                     </li>
-                                  <li class="nav-item">
-                                    <a href="/admin/products" class="nav-link">
-                                        <i class="fa fa-dot-circle nav-icon"></i>
-                                      <p>Danh sách sản phẩm</p>
-                                    </a>
-                                  </li>
+                                    <li class="nav-item">
+                                        <a href="/admin/product" class="nav-link">
+                                            <i class="fa fa-dot-circle nav-icon"></i>
+                                            <p>Danh sách sản phẩm</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -126,7 +135,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/statistical" class="nav-link"> 
+                                <a href="/admin/statistical" class="nav-link">
                                     <i class="nav-icon fas fa-chart-pie"></i>
                                     <p>Thống kê</p>
                                 </a>
@@ -136,25 +145,27 @@
                 </div>
             </aside>
         </div>
-        <div class="content-wrapper">
-            <section class="content">
-                <div class="container-fluid "> 
-                <h2 style="padding: 25px">@yield('content-title')</h2> 
+        <div class="content-wrapper"> 
+                <div style="padding: 25px; background: rgb(140, 249, 253)" class="row col-12">
+                    <h2 class="col-8">@yield('content-title')</h2>  
+                        @yield('content-button') 
+                </div>
+                
+                <div class="container-fluid pt-3">
                     <div class="list-group">
                         <div class="col-12">
                             @yield('content')
                         </div>
                     </div>
-                </div>
-            </section>
+                </div> 
         </div>
         <div>
             @include('layout.footer')
         </div>
     </div>
-    <script src="{{asset('/dist/js/jquery.min.js')}}"></script>
-    <script src="{{asset('/dist/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('/dist/js/adminlte.min.js')}}"></script>
+    <script src="{{ asset('/dist/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/dist/js/adminlte.min.js') }}"></script>
 </body>
 
 </html>
